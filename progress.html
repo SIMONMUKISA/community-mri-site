@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Progress — Community MRI Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #f6f1e9; --ink: #1f2a2e; --muted: #3d4a4e;
+    --accent: #0f5c5e; --accent-dark: #0a4345; --line: #ddd3c3;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-dark); }
+  h1, h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; margin: 0; }
+  header {
+    position: sticky; top: 0; top: env(safe-area-inset-top, 0px); z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 24px; background: var(--bg); border-bottom: 1px solid var(--line);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+  .brand span { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 26px; background: var(--accent); color: #fff !important;
+    border: none; border-radius: 999px; font-family: inherit; font-size: 16px; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+  }
+  main { max-width: 900px; margin: 0 auto; padding: 72px 24px 96px; }
+  .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #9a4520; }
+  main h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-top: 14px; margin-bottom: 40px; }
+  main p { font-size: 18px; line-height: 1.65; color: var(--muted); margin: 0 0 16px; }
+  .placeholder { color: #9a4520; }
+  .back { display: inline-block; margin-bottom: 24px; font-size: 15px; color: var(--muted); text-decoration: none; }
+  .milestones { display: flex; flex-direction: column; gap: 0; margin-top: 16px; }
+  .milestone {
+    display: grid; grid-template-columns: 120px 1fr; gap: 24px;
+    padding: 24px 0; border-top: 1px solid var(--line);
+  }
+  .milestone:last-child { border-bottom: 1px solid var(--line); }
+  .milestone .date { font-weight: 600; color: var(--accent); font-size: 16px; }
+  .milestone h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; margin: 0 0 8px; }
+  .milestone p { font-size: 17px; margin: 0; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin: 32px 0 48px; }
+  .stat { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+  .stat .num { font-family: 'Fraunces', Georgia, serif; font-size: 36px; color: var(--accent); }
+  .stat .label { font-size: 15px; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 600px) {
+    .milestone { grid-template-columns: 1fr; gap: 8px; }
+    .stat-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://claude.ai/artifact/783Wwo1iWnqR7kjC5EUM8L" class="brand">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0f5c5e" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4.5"></circle></svg>
+    <span>Community MRI Project</span>
+  </a>
+  <a href="https://claude.ai/artifact/YUTry2agaGxMPwnCzepy53" class="btn">Donate</a>
+</header>
+
+<main>
+  <a href="https://claude.ai/artifact/783Wwo1iWnqR7kjC5EUM8L" class="back">&larr; Back to home</a>
+  <div class="eyebrow">Progress</div>
+  <h1>Where things stand</h1>
+
+  <p><span class="placeholder">[A sentence or two summarizing current progress toward your mission — what's been accomplished so far and what's actively underway.]</span></p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">[00]</div><div class="label">[What this number tracks, e.g. scans funded]</div></div>
+    <div class="stat"><div class="num">[00]</div><div class="label">[What this number tracks, e.g. people served]</div></div>
+    <div class="stat"><div class="num">[00%]</div><div class="label">[What this number tracks, e.g. toward a goal]</div></div>
+  </div>
+
+  <h2 style="font-size: 26px; margin-bottom: 8px;">Milestones</h2>
+  <div class="milestones">
+    <div class="milestone">
+      <div class="date">[Month Year]</div>
+      <div>
+        <h3>[Milestone title]</h3>
+        <p>[A sentence describing what happened at this milestone.]</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="date">[Month Year]</div>
+      <div>
+        <h3>[Milestone title]</h3>
+        <p>[A sentence describing what happened at this milestone.]</p>
+      </div>
+    </div>
+    <div class="milestone">
+      <div class="date">[Month Year]</div>
+      <div>
+        <h3>[Milestone title]</h3>
+        <p>[A sentence describing what happened at this milestone.]</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
