@@ -34,28 +34,59 @@
     border: none; border-radius: 999px; font-family: inherit; font-size: 16px; font-weight: 600;
     text-decoration: none; cursor: pointer;
   }
+  .btn-outline {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 26px; background: transparent; color: var(--ink) !important;
+    border: 2px solid var(--ink); border-radius: 999px; font-family: inherit; font-size: 16px; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+  }
   main { max-width: 900px; margin: 0 auto; padding: 72px 24px 96px; }
   .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #9a4520; }
-  main h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-top: 14px; margin-bottom: 40px; }
+  main h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-top: 14px; margin-bottom: 20px; }
+  main h2 { font-size: 26px; margin: 48px 0 20px; }
   main p { font-size: 18px; line-height: 1.65; color: var(--muted); margin: 0 0 16px; }
-  .placeholder { color: #9a4520; }
   .back { display: inline-block; margin-bottom: 24px; font-size: 15px; color: var(--muted); text-decoration: none; }
-  .milestones { display: flex; flex-direction: column; gap: 0; margin-top: 16px; }
-  .milestone {
-    display: grid; grid-template-columns: 120px 1fr; gap: 24px;
+
+  .done-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .done-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 18px; line-height: 1.5; color: var(--ink);
+    background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px;
+  }
+  .done-list li svg { flex: none; margin-top: 3px; }
+
+  .phase-list { display: flex; flex-direction: column; gap: 0; }
+  .phase {
+    display: grid; grid-template-columns: 56px 1fr; gap: 20px;
     padding: 24px 0; border-top: 1px solid var(--line);
   }
-  .milestone:last-child { border-bottom: 1px solid var(--line); }
-  .milestone .date { font-weight: 600; color: var(--accent); font-size: 16px; }
-  .milestone h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; margin: 0 0 8px; }
-  .milestone p { font-size: 17px; margin: 0; }
-  .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin: 32px 0 48px; }
-  .stat { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
-  .stat .num { font-family: 'Fraunces', Georgia, serif; font-size: 36px; color: var(--accent); }
-  .stat .label { font-size: 15px; color: var(--muted); margin-top: 4px; }
+  .phase:last-child { border-bottom: 1px solid var(--line); }
+  .phase .num {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 17px;
+    background: var(--line); color: var(--ink);
+  }
+  .phase.current .num { background: var(--accent); color: #fff; }
+  .phase h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 21px; margin: 6px 0 8px; }
+  .phase .tag {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); background: #e4ede9; border-radius: 999px; padding: 3px 12px; margin-bottom: 10px;
+  }
+  .phase p { font-size: 17px; margin: 0; }
+
+  .needs-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; margin-top: 8px; }
+  .need {
+    padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .need h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 19px; margin: 0; }
+  .need p { font-size: 16px; margin: 0; }
+
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px; }
+
   @media (max-width: 600px) {
-    .milestone { grid-template-columns: 1fr; gap: 8px; }
-    .stat-row { grid-template-columns: 1fr; }
+    .needs-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -74,37 +105,79 @@
   <div class="eyebrow">Progress</div>
   <h1>Where things stand</h1>
 
-  <p><span class="placeholder">[A sentence or two summarizing current progress toward your mission — what's been accomplished so far and what's actively underway.]</span></p>
+  <p>We're building a low-cost, compact desktop MRI scanner from the ground up — and there's still a lot of room for people to join the project. The build is split into five phases, and we're laying the groundwork for Phase 1 right now.</p>
 
-  <div class="stat-row">
-    <div class="stat"><div class="num">[00]</div><div class="label">[What this number tracks, e.g. scans funded]</div></div>
-    <div class="stat"><div class="num">[00]</div><div class="label">[What this number tracks, e.g. people served]</div></div>
-    <div class="stat"><div class="num">[00%]</div><div class="label">[What this number tracks, e.g. toward a goal]</div></div>
+  <h2>What we've done so far</h2>
+  <ul class="done-list">
+    <li>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f5c5e" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path></svg>
+      Launched this website
+    </li>
+    <li>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f5c5e" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path></svg>
+      Secured studio space to build in
+    </li>
+    <li>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0f5c5e" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path></svg>
+      3D printed a WOBOT toy robot prototype — we're selling these as a fundraiser toward a large-format 3D printer
+    </li>
+  </ul>
+
+  <h2>The build, phase by phase</h2>
+  <div class="phase-list">
+    <div class="phase current">
+      <div class="num">1</div>
+      <div>
+        <div class="tag">In progress</div>
+        <h3>Building the magnet</h3>
+        <p>Our desktop MRI uses cube-shaped permanent magnets — 4,800 neodymium magnets arranged in a Halbach array — which is what lets us keep the whole machine small. The magnet assembly is made up of 25 individual plates that hold the magnets in place to form the array.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="num">2</div>
+      <div>
+        <h3>3D printing the gradient coil insert</h3>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="num">3</div>
+      <div>
+        <h3>3D printing the RF coil insert</h3>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="num">4</div>
+      <div>
+        <h3>Assembling electronics</h3>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="num">5</div>
+      <div>
+        <h3>Initial testing of the system</h3>
+      </div>
+    </div>
   </div>
 
-  <h2 style="font-size: 26px; margin-bottom: 8px;">Milestones</h2>
-  <div class="milestones">
-    <div class="milestone">
-      <div class="date">[Month Year]</div>
-      <div>
-        <h3>[Milestone title]</h3>
-        <p>[A sentence describing what happened at this milestone.]</p>
-      </div>
+  <h2>What Phase 1 needs right now</h2>
+  <div class="needs-grid">
+    <div class="need">
+      <h3>A large-format 3D printer</h3>
+      <p>A printer with a large print bed, needed to produce the magnet plates and upcoming coil inserts.</p>
     </div>
-    <div class="milestone">
-      <div class="date">[Month Year]</div>
-      <div>
-        <h3>[Milestone title]</h3>
-        <p>[A sentence describing what happened at this milestone.]</p>
-      </div>
+    <div class="need">
+      <h3>Volunteers</h3>
+      <p>Hands for assembly, design, electronics, and everything in between.</p>
     </div>
-    <div class="milestone">
-      <div class="date">[Month Year]</div>
-      <div>
-        <h3>[Milestone title]</h3>
-        <p>[A sentence describing what happened at this milestone.]</p>
-      </div>
+    <div class="need">
+      <h3>Magnets</h3>
+      <p>Neodymium cube magnets for the Halbach array — 4,800 of them, by design.</p>
     </div>
+  </div>
+
+  <div class="cta-row">
+    <a href="get-involved.html" class="btn">Volunteer</a>
+    <a href="wobot.html" class="btn-outline">Support with a donation</a>
   </div>
 </main>
 
