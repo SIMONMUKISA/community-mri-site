@@ -67,8 +67,33 @@
     font-family: inherit; font-size: 16px; background: var(--bg); width: 240px;
   }
   .newsletter-form { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+
+  .volunteer-form {
+    margin-top: 48px; padding: 32px; background: #fff; border: 1px solid var(--line); border-radius: 18px;
+  }
+  .volunteer-form h2 { font-size: 24px; margin-bottom: 8px; }
+  .volunteer-form > p { color: var(--muted); font-size: 16px; margin: 0 0 28px; max-width: 560px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-grid .field-full { grid-column: 1 / -1; }
+  .volunteer-form .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
+  .volunteer-form label { font-size: 14px; font-weight: 600; }
+  .volunteer-form input,
+  .volunteer-form select,
+  .volunteer-form textarea {
+    min-height: 46px; padding: 0 16px; border: 2px solid #b9ad98; border-radius: 12px;
+    font-family: inherit; font-size: 16px; background: var(--bg); width: 100%;
+  }
+  .volunteer-form textarea { padding: 12px 16px; min-height: 100px; resize: vertical; }
+  .volunteer-form .field input[type="checkbox"] { width: auto; min-height: auto; }
+  .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+  .checkbox-row { display: flex; align-items: center; gap: 10px; font-size: 16px; }
+  .checkbox-row input { width: 18px; height: 18px; }
+  .volunteer-form button { margin-top: 24px; }
+  .form-note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+
   @media (max-width: 700px) {
     .grid-3 { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -86,30 +111,70 @@
   <a href="index.html" class="back">&larr; Back to home</a>
   <div class="eyebrow">Get involved</div>
   <h1>There are a few ways to help</h1>
-  <p><span class="placeholder">[A sentence inviting people to pick the way they'd like to support Community MRI Project.]</span></p>
+  <p>We're a small, volunteer-powered project building a desktop MRI scanner from the ground up — pick whichever way of pitching in fits you best.</p>
 
   <div class="grid-3">
     <div class="card">
       <h3>Donate</h3>
-      <p><span class="placeholder">[What a gift makes possible, in one or two sentences.]</span></p>
+      <p>Proceeds from WOBOT and direct gifts go straight toward what Phase 1 needs most: a large-format 3D printer and the 4,800 magnets for our Halbach array.</p>
       <a href="wobot.html" class="btn">Give today</a>
     </div>
     <div class="card">
       <h3>Volunteer</h3>
-      <p><span class="placeholder">[How people can give their time and what to expect.]</span></p>
-      <a href="#" class="btn-outline">Sign up to help</a>
+      <p>We need hands for 3D printing, electronics, assembly, and outreach. No experience required to get started — just fill out the form below and we'll follow up.</p>
+      <a href="#volunteer-form" class="btn-outline">Sign up to help</a>
     </div>
     <div class="card">
-      <h3>Partner with us</h3>
-      <p><span class="placeholder">[How organizations, clinics, or businesses can work with you.]</span></p>
-      <a href="#" class="btn-outline">Get in touch</a>
+      <h3>Host a visit</h3>
+      <p>Invite our volunteers to your school, workplace, or community group for a talk, a studio tour, or a joint fundraising outing — it's one of our favorite ways to meet the people supporting us.</p>
+      <a href="mailto:communitymriproject@gmail.com?subject=Hosting%20a%20visit%20with%20Community%20MRI%20Project" class="btn-outline">Get in touch</a>
     </div>
+  </div>
+
+  <div class="volunteer-form" id="volunteer-form">
+    <h2>Volunteer sign-up</h2>
+    <p>Tell us a bit about yourself and what you're interested in. Hitting submit opens your email app with this filled in, addressed to us — just hit send from there.</p>
+    <form action="mailto:communitymriproject@gmail.com?subject=Volunteer%20sign-up" method="post" enctype="text/plain">
+      <div class="form-grid">
+        <div class="field">
+          <label for="v-name">Name</label>
+          <input id="v-name" name="Name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="v-email">Email</label>
+          <input id="v-email" name="Email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="v-phone">Phone (optional)</label>
+          <input id="v-phone" name="Phone" type="tel">
+        </div>
+        <div class="field">
+          <label for="v-availability">Availability</label>
+          <input id="v-availability" name="Availability" type="text" placeholder="e.g. weekends, Tuesday evenings">
+        </div>
+        <div class="field field-full">
+          <label>What are you interested in helping with?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-row"><input type="checkbox" name="Interest" value="3D printing"> 3D printing</label>
+            <label class="checkbox-row"><input type="checkbox" name="Interest" value="Electronics / assembly"> Electronics &amp; assembly</label>
+            <label class="checkbox-row"><input type="checkbox" name="Interest" value="Fundraising / outreach"> Fundraising &amp; outreach</label>
+            <label class="checkbox-row"><input type="checkbox" name="Interest" value="Not sure yet"> Not sure yet — just want to help</label>
+          </div>
+        </div>
+        <div class="field field-full">
+          <label for="v-message">Anything else we should know?</label>
+          <textarea id="v-message" name="Message" placeholder="Relevant skills, questions, or anything else"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn">Send volunteer info</button>
+      <div class="form-note">This opens your email app — if nothing happens, email us directly at <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a>.</div>
+    </form>
   </div>
 
   <div class="newsletter">
     <div>
       <h3>Stay in the loop</h3>
-      <p><span class="placeholder">[One line about what your updates include and how often.]</span></p>
+      <p>Occasional updates on build progress and milestones — no spam, unsubscribe any time.</p>
     </div>
     <form class="newsletter-form" onsubmit="return false;">
       <div class="field">
