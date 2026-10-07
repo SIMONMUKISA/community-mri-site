@@ -53,6 +53,11 @@
   }
   .story-card h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; }
   .story-card p { margin: 0; font-size: 17px; }
+  .story-card .loc {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .story-card .source { font-size: 14px; margin-top: 4px; }
   @media (max-width: 600px) {
     .impact-band { grid-template-columns: 1fr; }
   }
@@ -71,27 +76,47 @@
 <main>
   <a href="index.html" class="back">&larr; Back to home</a>
   <div class="eyebrow">Impact</div>
-  <h1>The difference we're making</h1>
+  <h1>Part of a global movement</h1>
 
-  <p><span class="placeholder">[A sentence or two framing the overall impact of the organization's work so far.]</span></p>
+  <p>Roughly two-thirds of the world has no access to MRI at all. Over the past few years, a growing network of universities, hospitals, and independent teams has been proving that a working MRI scanner can be designed in the open, built with ordinary tools, and shared freely — for a fraction of the cost of a conventional machine. Community MRI Project's own build draws directly on that movement, especially the OSI&sup2; ONE open-source scanner.</p>
 
   <div class="impact-band">
-    <div class="stat"><div class="num">[00,000]</div><div class="label">[What this number measures]</div></div>
-    <div class="stat"><div class="num">[00]</div><div class="label">[What this number measures]</div></div>
-    <div class="stat"><div class="num">[00%]</div><div class="label">[What this number measures]</div></div>
+    <div class="stat"><div class="num">50 mT</div><div class="label">OSI&sup2; ONE's field strength — a permanent-magnet, portable design</div></div>
+    <div class="stat"><div class="num">&euro;25&ndash;60k</div><div class="label">Estimated material cost to build one, vs. millions for a hospital scanner</div></div>
+    <div class="stat"><div class="num">~150 kg</div><div class="label">Total weight — it runs on a standard wall outlet</div></div>
   </div>
 
-  <h2 style="font-size: 26px; margin-bottom: 16px;">Stories from the community</h2>
-
-  <div class="story-card">
-    <h3>[A short, human headline]</h3>
-    <p><span class="placeholder">[A paragraph telling a specific story about someone the organization has helped, in their own words or summarized.]</span></p>
-  </div>
+  <h2 style="font-size: 26px; margin-bottom: 16px;">Built around the world</h2>
 
   <div class="story-card">
-    <h3>[A short, human headline]</h3>
-    <p><span class="placeholder">[A paragraph telling a specific story about someone the organization has helped, in their own words or summarized.]</span></p>
+    <div class="loc">Leiden &amp; Delft, Netherlands</div>
+    <h3>Where OSI&sup2; ONE began</h3>
+    <p>The Open Source Imaging Initiative first presented OSI&sup2; ONE in 2023 — a modular, 50 mT scanner built from open hardware (released under the CERN Open Hardware Licence) and open software (GPL-3.0), designed to be built with standard tools like CNC machines and 3D printers.</p>
+    <p class="source"><a href="https://letsdatascience.com/news/osi2-one-brings-open-source-portable-mri-34fec67a" target="_blank" rel="noopener noreferrer">Source: Let's Data Science</a></p>
   </div>
+
+  <div class="story-card">
+    <div class="loc">Mbarara, Uganda &amp; Asunci&oacute;n, Paraguay</div>
+    <h3>Built locally, from local parts</h3>
+    <p>Teams at Mbarara University of Science and Technology and in Paraguay each built their own OSI&sup2; ONE systems with local staff — Uganda's build took about 11 days, Paraguay's took roughly 6 months sourcing most components locally. Both scanners are now used in neuroimaging research, including studies on Alzheimer's disease.</p>
+    <p class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11713143" target="_blank" rel="noopener noreferrer">Source: Alzheimer's &amp; Dementia (PMC)</a></p>
+  </div>
+
+  <div class="story-card">
+    <div class="loc">Berlin, Germany &amp; 19 partners across Europe</div>
+    <h3>A European reference system</h3>
+    <p>Germany's national metrology institute (PTB) leads A4IM, an EU-funded project building on OSI&sup2; ONE to create a fully documented, affordable open-source low-field MRI reference system — aiming to make repairs cheaper and open a path toward regulatory approval for under-resourced hospitals.</p>
+    <p class="source"><a href="https://www.openproject.org/blog/ptb-open-source-mri-scanner/" target="_blank" rel="noopener noreferrer">Source: PTB / OpenProject</a></p>
+  </div>
+
+  <div class="story-card">
+    <div class="loc">Cape Town, South Africa &amp; Montreal, Canada</div>
+    <h3>Proving the design travels</h3>
+    <p>Led by McGill's Udunna Anazodo with partners at Stellenbosch University, NYU Abu Dhabi, and the Polytechnic University of Valencia, the Imaging Without Borders project built two prototype scanners in parallel — one in Cape Town, one in Montreal — showing that an open-source design can be reliably reproduced by different teams in different places.</p>
+    <p class="source"><a href="https://www.mcgill.ca/neuro/article/open-science-research/mri-without-borders" target="_blank" rel="noopener noreferrer">Source: The Neuro, McGill University</a></p>
+  </div>
+
+  <p style="margin-top: 32px;">Here in Boston, we're building our own version of this idea — a permanent-magnet scanner assembled in five phases, starting with a Halbach array of 4,800 neodymium magnets. See how far we've gotten on <a href="progress.html">the Progress page</a>, or <a href="get-involved.html">get involved</a>.</p>
 </main>
 
 </body>
