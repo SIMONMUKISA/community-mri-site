@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
   :root {
     --bg: #fff8ec;
@@ -70,28 +69,27 @@
   .hero h1 { font-size: clamp(36px, 5.5vw, 64px); line-height: 1.05; margin-top: 16px; }
   .hero p { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 480px; margin-top: 20px; }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
-  .placeholder-img {
-    display: flex; align-items: center; justify-content: center;
-    min-height: 320px; height: 100%;
-    border: 3px dashed #e3b98c; border-radius: 24px;
-    background: #ffeedc; color: #8a6a4a;
-    font-size: 16px; text-align: center; padding: 24px;
-  }
-  .model-3d {
+  .render-wrap {
     position: relative;
     min-height: 320px; height: 100%;
     border-radius: 24px;
     overflow: hidden;
     background: linear-gradient(160deg, #ffe3c6, #ffd1b0);
+    display: flex; align-items: center; justify-content: center;
+    padding: 12px;
   }
-  .model-3d canvas { display: block; width: 100%; height: 100%; }
+  .render-wrap img { display: block; width: 100%; height: auto; }
   .section-head { max-width: 640px; margin: 0 auto 40px; }
   .white { background: #ffffff; }
   .grid-3 { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
   .card { display: flex; flex-direction: column; gap: 14px; padding: 28px; background: var(--bg); border-radius: 20px; border: 1px solid var(--line); }
+  .card img { width: 100%; height: 180px; object-fit: contain; background: #fff; border-radius: 16px; border: 1px solid var(--line); }
   .card h3 { font-size: 22px; }
   .card p { font-size: 17px; line-height: 1.55; color: var(--muted); margin: 0; flex-grow: 1; }
-  .price-tag { display: inline-flex; align-items: center; font-size: 15px; font-weight: 600; color: var(--accent-dark); }
+  .fact-tag { display: inline-flex; align-items: center; font-size: 15px; font-weight: 600; color: var(--accent-dark); }
+  .stat-table { width: 100%; border-collapse: collapse; max-width: 640px; margin: 24px auto 0; font-size: 16px; }
+  .stat-table th, .stat-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.25); }
+  .stat-table th { font-weight: 600; color: #dff1ef; }
   .how { background: var(--teal); color: #fff; }
   .how h2 { color: #fff; margin-bottom: 40px; }
   .how p { color: #dff1ef; }
@@ -189,69 +187,75 @@
     <div>
       <div class="eyebrow">A fundraiser for Community MRI Project</div>
       <h1>Little robots. Big impact.</h1>
-      <p>[One or two sentences introducing WOBOT — the toy robots and the cause they support.]</p>
+      <p>WOBOT is a hybrid walking-and-rolling robot — two Theo Jansen-linkage legs in back, two wheels up front, driven by four small gear motors. We designed and simulated it ourselves in FreeCAD, 3D print it, and sell it to help fund our desktop MRI build.</p>
       <div class="cta-row">
-        <a href="#shop" class="btn">Shop the robots</a>
+        <a href="#shop" class="btn">See the design</a>
       </div>
     </div>
-    <div class="model-3d" id="hero-robot-mount"><canvas id="hero-robot-canvas"></canvas></div>
+    <div class="render-wrap"><img src="wobot-design/robot_optionC_iso.png" alt="WOBOT CAD render, isometric view, showing the Jansen-leg and wheel assembly"></div>
   </div>
 </section>
 
 <section id="shop" class="white">
   <div class="section-head">
-    <div class="eyebrow">Meet the robots</div>
-    <h2 style="font-size: clamp(28px, 4vw, 40px); margin-top: 10px;">[Headline about the robot lineup]</h2>
+    <div class="eyebrow">How WOBOT is built</div>
+    <h2 style="font-size: clamp(28px, 4vw, 40px); margin-top: 10px;">Designed, simulated, and 3D printed from scratch</h2>
   </div>
   <div class="grid-3">
     <div class="card">
-      <div class="placeholder-img" style="min-height: 180px; border-radius: 16px;">[Robot photo]</div>
-      <h3>[Robot name one]</h3>
-      <p>[A line about this robot's look or personality.]</p>
-      <div class="price-tag">[$00]</div>
+      <img src="wobot-design/robot_optionC_iso.png" alt="Isometric render of WOBOT">
+      <h3>Legs in back, wheels in front</h3>
+      <p>Two Jansen-linkage legs and two wheels share one Rev60A honeycomb chassis, each with its own yellow TT gear motor — four motors in total.</p>
+      <div class="fact-tag">Current design: "Option C"</div>
     </div>
     <div class="card">
-      <div class="placeholder-img" style="min-height: 180px; border-radius: 16px;">[Robot photo]</div>
-      <h3>[Robot name two]</h3>
-      <p>[A line about this robot's look or personality.]</p>
-      <div class="price-tag">[$00]</div>
+      <img src="wobot-design/robot_optionC_side.png" alt="Side-profile render of WOBOT">
+      <h3>A real walking gait</h3>
+      <p>The legs use a Theo Jansen linkage scaled to 1.2&times; the "Holy Numbers" — the classic proportions that give a Jansen mechanism its smooth, natural foot path.</p>
+      <div class="fact-tag">~64 mm stroke per step</div>
     </div>
     <div class="card">
-      <div class="placeholder-img" style="min-height: 180px; border-radius: 16px;">[Robot photo]</div>
-      <h3>[Robot name three]</h3>
-      <p>[A line about this robot's look or personality.]</p>
-      <div class="price-tag">[$00]</div>
+      <img src="wobot-design/robot_exploded.png" alt="Exploded CAD view of WOBOT's parts">
+      <h3>Built to be printed</h3>
+      <p>Every part — rods, triangles, clips, collars, the chassis itself — is modeled for FDM 3D printing, checked for a full 360&deg; motion sweep with zero collisions.</p>
+      <div class="fact-tag">All parts open-source</div>
     </div>
   </div>
 </section>
 
 <section id="how" class="how">
   <div class="wrap">
-    <h2 style="font-size: clamp(28px, 4vw, 40px);">How it works</h2>
+    <h2 style="font-size: clamp(28px, 4vw, 40px);">How it walks</h2>
     <div class="step-grid">
       <div class="step">
         <div class="num">1</div>
-        <h3>[Step one]</h3>
-        <p>[Short description of this step.]</p>
+        <h3>The crank turns</h3>
+        <p>Each leg motor spins a cam pin that acts as the crank of a Jansen linkage — a chain of rods and triangle plates that converts simple rotation into a stepping motion.</p>
       </div>
       <div class="step">
         <div class="num">2</div>
-        <h3>[Step two]</h3>
-        <p>[Short description of this step.]</p>
+        <h3>The foot traces a stride</h3>
+        <p>The linkage geometry naturally traces a flat-bottomed loop: the foot stays on the ground for about 41% of each rotation, lifting about 25 mm to clear the next step.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
-        <h3>[Step three]</h3>
-        <p>[Short description of this step.]</p>
+        <h3>Wheels match the pace</h3>
+        <p>The front wheels are scaled so their rim touches the same ground plane as the feet, and run at about 52% of the leg motors' speed to keep the robot moving evenly.</p>
       </div>
     </div>
+    <table class="stat-table">
+      <tr><th>Path metric</th><th>As built</th><th>Ideal Jansen (1.2&times;)</th></tr>
+      <tr><td>Flat ground stroke</td><td>~64 mm</td><td>68.6 mm</td></tr>
+      <tr><td>Time each turn on the ground</td><td>41%</td><td>43%</td></tr>
+      <tr><td>Foot lift</td><td>24.6 mm</td><td>27 mm</td></tr>
+    </table>
   </div>
 </section>
 
 <section id="donate" class="white">
   <div class="donate-cta">
-    <h2>Every robot funds real care</h2>
-    <p>[A sentence on how proceeds from WOBOT support Community MRI Project's programs.]</p>
+    <h2>Every robot funds real progress</h2>
+    <p>Proceeds from WOBOT go straight toward what Community MRI Project's build needs most right now: a large-format 3D printer and the magnets for our scanner's Halbach array.</p>
   </div>
 </section>
 
@@ -266,133 +270,8 @@
     </svg>
     <span>WOBOT</span>
   </div>
-  <p>A fundraising project of Community MRI Project. [Contact email] &middot; [City, State]</p>
+  <p>A fundraising project of Community MRI Project. <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a> &middot; Boston, MA</p>
 </footer>
 
-
-<script>
-(function () {
-  try {
-    var mount = document.getElementById('hero-robot-mount');
-    var canvas = document.getElementById('hero-robot-canvas');
-    if (!mount || !canvas || typeof THREE === 'undefined') return;
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-    camera.position.set(0, 1.1, 7);
-
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-    var key = new THREE.DirectionalLight(0xffffff, 1.0);
-    key.position.set(3, 5, 4);
-    scene.add(key);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-
-    var orange = 0xff6b4a;
-    var teal = 0x0f5c5e;
-    var cream = 0xfff8ec;
-
-    var robot = new THREE.Group();
-
-    var body = new THREE.Mesh(
-      new THREE.BoxGeometry(1.6, 1.8, 1.1),
-      new THREE.MeshStandardMaterial({ color: orange, roundness: 1, metalness: 0.1, roughness: 0.5 })
-    );
-    body.position.y = 0;
-    robot.add(body);
-
-    var panel = new THREE.Mesh(
-      new THREE.BoxGeometry(1.0, 1.0, 0.08),
-      new THREE.MeshStandardMaterial({ color: cream, roughness: 0.6 })
-    );
-    panel.position.set(0, 0.05, 0.57);
-    robot.add(panel);
-
-    for (var i = 0; i < 3; i++) {
-      var dot = new THREE.Mesh(
-        new THREE.CircleGeometry(0.09, 24),
-        new THREE.MeshStandardMaterial({ color: teal })
-      );
-      dot.position.set(-0.3 + i * 0.3, 0.2, 0.62);
-      robot.add(dot);
-    }
-
-    var head = new THREE.Mesh(
-      new THREE.BoxGeometry(1.1, 0.9, 1.0),
-      new THREE.MeshStandardMaterial({ color: cream, roughness: 0.5 })
-    );
-    head.position.y = 1.55;
-    robot.add(head);
-
-    var antenna = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.035, 0.035, 0.5, 12),
-      new THREE.MeshStandardMaterial({ color: teal })
-    );
-    antenna.position.y = 2.25;
-    robot.add(antenna);
-    var antennaTip = new THREE.Mesh(
-      new THREE.SphereGeometry(0.09, 16, 16),
-      new THREE.MeshStandardMaterial({ color: orange })
-    );
-    antennaTip.position.y = 2.52;
-    robot.add(antennaTip);
-
-    var eyeGeo = new THREE.SphereGeometry(0.13, 20, 20);
-    var eyeMat = new THREE.MeshStandardMaterial({ color: teal });
-    var eyeL = new THREE.Mesh(eyeGeo, eyeMat);
-    eyeL.position.set(-0.28, 1.6, 0.52);
-    robot.add(eyeL);
-    var eyeR = new THREE.Mesh(eyeGeo, eyeMat);
-    eyeR.position.set(0.28, 1.6, 0.52);
-    robot.add(eyeR);
-
-    var armGeo = new THREE.CylinderGeometry(0.14, 0.14, 1.1, 16);
-    var armMat = new THREE.MeshStandardMaterial({ color: teal, roughness: 0.5 });
-    var armL = new THREE.Mesh(armGeo, armMat);
-    armL.position.set(-1.0, 0.1, 0);
-    armL.rotation.z = 0.25;
-    robot.add(armL);
-    var armR = armL.clone();
-    armR.position.x = 1.0;
-    armR.rotation.z = -0.25;
-    robot.add(armR);
-
-    var legGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.7, 16);
-    var legMat = new THREE.MeshStandardMaterial({ color: orange, roughness: 0.5 });
-    var legL = new THREE.Mesh(legGeo, legMat);
-    legL.position.set(-0.4, -1.25, 0);
-    robot.add(legL);
-    var legR = legL.clone();
-    legR.position.x = 0.4;
-    robot.add(legR);
-
-    robot.position.y = -0.3;
-    scene.add(robot);
-
-    function resize() {
-      var w = mount.clientWidth || 1;
-      var h = mount.clientHeight || 1;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    var clock = new THREE.Clock();
-    function animate() {
-      requestAnimationFrame(animate);
-      var t = clock.getElapsedTime();
-      robot.rotation.y = Math.sin(t * 0.6) * 0.5 + t * 0.25;
-      robot.position.y = -0.3 + Math.sin(t * 1.4) * 0.08;
-      renderer.render(scene, camera);
-    }
-    animate();
-  } catch (e) {
-    console.warn('3D robot failed to initialize', e);
-  }
-})();
-</script>
 </body>
 </html>
