@@ -83,7 +83,7 @@
   .white { background: #ffffff; }
   .grid-3 { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
   .card { display: flex; flex-direction: column; gap: 14px; padding: 28px; background: var(--bg); border-radius: 20px; border: 1px solid var(--line); }
-  .card img { width: 100%; height: 180px; object-fit: contain; background: #fff; border-radius: 16px; border: 1px solid var(--line); }
+  .card img { width: 100%; height: 180px; object-fit: cover; background: #fff; border-radius: 16px; border: 1px solid var(--line); }
   .card h3 { font-size: 22px; }
   .card p { font-size: 17px; line-height: 1.55; color: var(--muted); margin: 0; flex-grow: 1; }
   .fact-tag { display: inline-flex; align-items: center; font-size: 15px; font-weight: 600; color: var(--accent-dark); }
@@ -192,7 +192,7 @@
         <a href="#shop" class="btn">See the design</a>
       </div>
     </div>
-    <div class="render-wrap"><img src="wobot-design/robot_optionC_iso.png" alt="WOBOT CAD render, isometric view, showing the Jansen-leg and wheel assembly"></div>
+    <div class="render-wrap"><img src="wobot-design/wobot_photo_full.jpg" alt="A real printed WOBOT prototype, side view, showing the Jansen-leg and wheel assembly on a workbench"></div>
   </div>
 </section>
 
@@ -203,21 +203,21 @@
   </div>
   <div class="grid-3">
     <div class="card">
-      <img src="wobot-design/robot_optionC_iso.png" alt="Isometric render of WOBOT">
+      <img src="wobot-design/wobot_photo_leg_closeup.jpg" alt="Close-up of a printed WOBOT leg and wheel assembly on the workbench">
       <h3>Legs in back, wheels in front</h3>
       <p>Two Jansen-linkage legs and two wheels share one Rev60A honeycomb chassis, each with its own yellow TT gear motor — four motors in total.</p>
       <div class="fact-tag">Current design: "Option C"</div>
     </div>
     <div class="card">
-      <img src="wobot-design/robot_optionC_side.png" alt="Side-profile render of WOBOT">
+      <img src="wobot-design/wobot_photo_motor_detail.jpg" alt="Overhead view of a printed WOBOT showing the honeycomb chassis and gear motor wiring">
       <h3>A real walking gait</h3>
       <p>The legs use a Theo Jansen linkage scaled to 1.2&times; the "Holy Numbers" — the classic proportions that give a Jansen mechanism its smooth, natural foot path.</p>
       <div class="fact-tag">~64 mm stroke per step</div>
     </div>
     <div class="card">
-      <img src="wobot-design/robot_exploded.png" alt="Exploded CAD view of WOBOT's parts">
+      <img src="wobot-design/wobot_photo_variants.jpg" alt="Two printed WOBOT prototypes in different color prints, side by side">
       <h3>Built to be printed</h3>
-      <p>Every part — rods, triangles, clips, collars, the chassis itself — is modeled for FDM 3D printing, checked for a full 360&deg; motion sweep with zero collisions.</p>
+      <p>Every part — rods, triangles, clips, collars, the chassis itself — is modeled for FDM 3D printing, checked for a full 360&deg; motion sweep with zero collisions. We've already printed several color variants to test fit.</p>
       <div class="fact-tag">All parts open-source</div>
     </div>
   </div>
