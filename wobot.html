@@ -87,6 +87,10 @@
   .card h3 { font-size: 22px; }
   .card p { font-size: 17px; line-height: 1.55; color: var(--muted); margin: 0; flex-grow: 1; }
   .fact-tag { display: inline-flex; align-items: center; font-size: 15px; font-weight: 600; color: var(--accent-dark); }
+  .photo-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+  .photo-card { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); }
+  .photo-card img { display: block; width: 100%; height: 320px; object-fit: cover; }
+  .photo-card figcaption { padding: 16px 20px 20px; font-size: 15px; line-height: 1.5; color: var(--muted); margin: 0; }
   .stat-table { width: 100%; border-collapse: collapse; max-width: 640px; margin: 24px auto 0; font-size: 16px; }
   .stat-table th, .stat-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.25); }
   .stat-table th { font-weight: 600; color: #dff1ef; }
@@ -143,7 +147,7 @@
     nav#nav-links.open { display: flex; }
     .menu-toggle { display: inline-flex; }
     .hero { grid-template-columns: 1fr; }
-    .grid-3, .step-grid { grid-template-columns: 1fr; }
+    .grid-3, .step-grid, .photo-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -221,6 +225,31 @@
       <div class="fact-tag">All parts open-source</div>
     </div>
   </div>
+</section>
+
+<section id="gallery" class="white">
+  <div class="section-head">
+    <div class="eyebrow">From the workshop</div>
+    <h2 style="font-size: clamp(28px, 4vw, 40px); margin-top: 10px;">More real prototypes, mid-build</h2>
+  </div>
+  <figure class="photo-grid">
+    <div class="photo-card">
+      <img src="wobot-design/wobot_photo_side_profile.jpg" alt="Side profile of a printed WOBOT prototype showing the full leg linkage extended and the wheel assembly behind it">
+      <figcaption>A full side profile of the current build, legs extended mid-stride and the honeycomb chassis visible behind them.</figcaption>
+    </div>
+    <div class="photo-card">
+      <img src="wobot-design/wobot_photo_chassis_macro.jpg" alt="Macro close-up of the WOBOT chassis underside showing the honeycomb lattice, motor mount brackets, and gear motor wiring">
+      <figcaption>A close-up of the chassis underside — the honeycomb lattice, 3D-printed motor mounts, and the gear motor's wiring.</figcaption>
+    </div>
+    <div class="photo-card">
+      <img src="wobot-design/wobot_photo_workbench.jpg" alt="A printed WOBOT prototype sitting on a workbench in our studio, surrounded by other tools and materials">
+      <figcaption>Fresh off the printer and sitting on our studio workbench, next to the rest of our build materials.</figcaption>
+    </div>
+    <div class="photo-card">
+      <img src="wobot-design/wobot_photo_early_iterations.jpg" alt="Two earlier WOBOT design iterations side by side, smaller scale prototypes in different colors used to test the leg linkage before the current design">
+      <figcaption>Two earlier design iterations, printed smaller to test the leg linkage before we settled on the current "Option C" design.</figcaption>
+    </div>
+  </figure>
 </section>
 
 <section id="how" class="how">
