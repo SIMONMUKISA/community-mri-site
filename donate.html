@@ -4,51 +4,144 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Donate — Community MRI Project</title>
+<meta name="description" content="Support Community MRI Project and the WOBOT fundraiser. Ways to give.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
   :root {
-    --bg: #f6f1e9; --ink: #1f2a2e; --muted: #3d4a4e;
-    --accent: #0f5c5e; --line: #ddd3c3;
+    --bg: #fff8ec; --ink: #20262b; --muted: #4a5159;
+    --accent: #ff6b4a; --accent-dark: #e14f2e; --teal: #0f5c5e;
+    --line: #ecdfc8; --card: #ffffff;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0; min-height: 100vh;
-    font-family: 'Source Sans 3', system-ui, sans-serif;
-    background: var(--bg); color: var(--ink);
-    display: flex; align-items: center; justify-content: center;
-    padding: 24px;
+  body { margin: 0; font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); }
+  a { color: var(--accent-dark); }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; margin: 0; }
+  header {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    padding: 18px 24px; border-bottom: 1px solid var(--line); background: var(--bg);
   }
-  .card {
-    max-width: 560px; width: 100%;
-    background: #fff; border: 1px solid var(--line); border-radius: 24px;
-    padding: 48px; text-align: center;
+  .brand { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .btn, .btn-outline {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 28px; border-radius: 999px;
+    font-family: inherit; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
   }
-  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 32px; margin: 0 0 16px; }
-  p { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0 0 12px; }
+  .btn { background: var(--accent); color: #fff !important; border: none; }
+  .btn-outline { background: transparent; color: var(--ink) !important; border: 2px solid var(--ink); }
+  .btn-sm { min-height: 40px; padding: 0 18px; font-size: 14px; }
+  main { max-width: 960px; margin: 0 auto; padding: 56px 24px 72px; }
+  .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+  h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.08; margin-top: 14px; }
+  .lead { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 640px; margin: 18px 0 0; }
+  .methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
+  .method {
+    display: flex; flex-direction: column; gap: 12px; padding: 28px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+  }
+  .method h2 { font-size: 22px; }
+  .method p { font-size: 17px; line-height: 1.55; color: var(--muted); margin: 0; flex-grow: 1; overflow-wrap: anywhere; }
+  .method .btn, .method .btn-outline { align-self: flex-start; }
+  .handle { font-weight: 600; color: var(--ink); }
   .note {
-    margin-top: 24px; padding: 16px 20px; background: var(--bg);
-    border-radius: 14px; font-size: 16px; color: var(--muted);
+    margin-top: 40px; padding: 20px 24px; background: #fff; border: 1px solid var(--line);
+    border-radius: 16px; font-size: 16px; line-height: 1.55; color: var(--muted);
   }
-  .contact { margin-top: 28px; font-size: 18px; }
-  .contact a { color: var(--accent); font-weight: 600; text-decoration: none; }
-  .back { display: inline-block; margin-top: 32px; font-size: 15px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+  @media (max-width: 480px) { .method { padding: 22px; } .handle { font-size: 16px; } }
+  footer { padding: 32px 24px calc(32px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: 15px; color: var(--muted); }
 </style>
 </head>
 <body>
-<div class="card">
-  <h1>Thank you for wanting to give</h1>
-  <p>We're still setting up online donation processing for Community MRI Project and WOBOT.</p>
-  <p>In the meantime, you can reach out directly and we'll help you make a gift.</p>
-  <div class="contact">
-    Email: <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a><br>
-    96 Holton St, Boston, MA 02135
+
+<header>
+  <a href="index.html" class="brand">Community MRI Project</a>
+  <a href="wobot.html" class="btn-outline btn-sm">&larr; Back to WOBOT</a>
+</header>
+
+<main>
+  <div class="eyebrow">Ways to give</div>
+  <h1>Help us build a low-cost desktop MRI</h1>
+  <p class="lead">Gifts go toward what the build needs most right now: a large-format 3D printer and the magnets for our scanner's Halbach array. Thank you for backing a small team in Boston.</p>
+
+  <div class="methods" id="methods">
+    <!-- Online methods are added here by the script below once a link/handle is filled in. -->
+    <div class="method">
+      <h2>Give by email or mail</h2>
+      <p>Prefer to give by check, bank transfer, or another way? Write to us and we'll set it up with you.<br><br>
+        <span class="handle">communitymriproject@gmail.com</span><br>
+        96 Holton St, Boston, MA 02135</p>
+      <a href="mailto:communitymriproject@gmail.com?subject=Donation%20to%20Community%20MRI%20Project" class="btn">Email us</a>
+    </div>
   </div>
-  <div class="note">An online donation option is coming soon.</div>
-  <a href="index.html" class="back">&larr; Back to home</a>
-</div>
+
+  <div class="note">
+    <strong>About tax deductibility.</strong> Community MRI Project is in the process of being established as a nonprofit. Until tax-exempt status is confirmed, please don't assume your gift is tax-deductible. We'll update this page when that changes.
+  </div>
+</main>
+
+<footer>
+  A project of Community MRI Project &middot; <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a> &middot; Boston, MA
+</footer>
+
+<script>
+  // To turn on an online payment option, paste its link (https://...) or handle below.
+  // Options left blank are not shown on the page.
+  var PAYMENT_METHODS = [
+    { name: 'Credit or debit card', url: '', cta: 'Give by card',
+      text: 'Give securely online with a credit or debit card.' },
+    { name: 'PayPal', url: '', cta: 'Give with PayPal',
+      text: 'Give with your PayPal balance, bank account, or card.' },
+    { name: 'Venmo', url: '', handle: '', cta: 'Give with Venmo',
+      text: 'Send a gift on Venmo.' },
+    { name: 'Cash App', url: '', handle: '', cta: 'Give with Cash App',
+      text: 'Send a gift on Cash App.' },
+    { name: 'Zelle', handle: '',
+      text: 'Send a bank-to-bank gift with Zelle.' }
+  ];
+
+  (function () {
+    var host = document.getElementById('methods');
+    PAYMENT_METHODS.forEach(function (m) {
+      var hasLink = typeof m.url === 'string' && m.url.indexOf('https://') === 0;
+      var hasHandle = typeof m.handle === 'string' && m.handle.trim() !== '';
+      if (!hasLink && !(m.name === 'Zelle' && hasHandle)) return;
+
+      var card = document.createElement('div');
+      card.className = 'method';
+
+      var h = document.createElement('h2');
+      h.textContent = m.name;
+      card.appendChild(h);
+
+      var p = document.createElement('p');
+      if (hasHandle) {
+        p.appendChild(document.createTextNode(m.text + ' Send to: '));
+        var s = document.createElement('span');
+        s.className = 'handle';
+        s.textContent = m.handle.trim();
+        p.appendChild(s);
+      } else {
+        p.textContent = m.text;
+      }
+      card.appendChild(p);
+
+      if (hasLink) {
+        var a = document.createElement('a');
+        a.className = 'btn';
+        a.href = m.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = m.cta;
+        card.appendChild(a);
+      }
+      host.insertBefore(card, host.lastElementChild);
+    });
+  })();
+</script>
+
 </body>
 </html>
