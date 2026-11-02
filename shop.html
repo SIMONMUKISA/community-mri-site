@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shop — WOBOT</title>
+<meta name="description" content="Buy a WOBOT, a 3D-printed walking-and-rolling robot. Proceeds fund Community MRI Project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #fff8ec; --ink: #20262b; --muted: #4a5159;
+    --accent: #ff6b4a; --accent-dark: #e14f2e; --teal: #0f5c5e;
+    --line: #ecdfc8; --card: #ffffff;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); }
+  a { color: var(--accent-dark); }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; margin: 0; }
+  header {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    padding: 18px 24px; border-bottom: 1px solid var(--line); background: var(--bg);
+  }
+  .brand { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .btn, .btn-outline {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 48px; padding: 0 28px; border-radius: 999px;
+    font-family: inherit; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
+  }
+  .btn { background: var(--accent); color: #fff !important; border: none; }
+  .btn-outline { background: transparent; color: var(--ink) !important; border: 2px solid var(--ink); }
+  .btn-sm { min-height: 40px; padding: 0 18px; font-size: 14px; }
+  main { max-width: 960px; margin: 0 auto; padding: 56px 24px 72px; }
+  .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+  h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.08; margin-top: 14px; }
+  .lead { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 640px; margin: 18px 0 0; }
+  .methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
+  .method {
+    display: flex; flex-direction: column; gap: 12px; padding: 28px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+  }
+  .method h2 { font-size: 22px; }
+  .method p { font-size: 17px; line-height: 1.55; color: var(--muted); margin: 0; flex-grow: 1; overflow-wrap: anywhere; }
+  .method .btn, .method .btn-outline { align-self: flex-start; }
+  .handle { font-weight: 600; color: var(--ink); }
+  .method.wide { grid-column: 1 / -1; }
+  .method.soon { background: #fffdf8; border-style: dashed; }
+  .method.soon h2 { color: var(--muted); }
+  .soon-tag {
+    align-self: flex-start; display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px;
+    border: 2px dashed var(--line); border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted);
+  }
+  .note {
+    margin-top: 40px; padding: 20px 24px; background: #fff; border: 1px solid var(--line);
+    border-radius: 16px; font-size: 16px; line-height: 1.55; color: var(--muted);
+  }
+  .note strong { color: var(--ink); }
+  @media (max-width: 480px) { .method { padding: 22px; } .handle { font-size: 16px; } }
+  footer { padding: 32px 24px calc(32px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: 15px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="brand">Community MRI Project</a>
+  <a href="wobot.html" class="btn-outline btn-sm">&larr; Back to WOBOT</a>
+</header>
+
+<main>
+  <div class="eyebrow">Shop</div>
+  <h1>Get a WOBOT</h1>
+  <p class="lead">Each WOBOT is designed in FreeCAD and printed in our own Boston studio. Proceeds go toward a large-format 3D printer and the magnets for our MRI scanner. <strong>Pricing and availability coming soon</strong> — email us to ask about a robot or get on the list.</p>
+
+  <div class="methods" id="methods" data-verb="Pay">
+    <!-- Payment option cards are added here by payment-methods.js -->
+    <div class="method wide">
+      <h2>Order or ask by email</h2>
+      <p>Want a WOBOT, or prefer to pay by check or bank transfer? Write to us and we'll set it up with you.<br><br>
+        <span class="handle">communitymriproject@gmail.com</span><br>
+        96 Holton St, Boston, MA 02135</p>
+      <a href="mailto:communitymriproject@gmail.com?subject=WOBOT%20order" class="btn">Email about a WOBOT</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  A fundraising project of Community MRI Project &middot; <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a> &middot; Boston, MA
+</footer>
+
+<script src="payment-methods.js"></script>
+
+</body>
+</html>

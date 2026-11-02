@@ -74,8 +74,8 @@
   <h1>Help us build a low-cost desktop MRI</h1>
   <p class="lead">Gifts go toward what the build needs most right now: a large-format 3D printer and the magnets for our scanner's Halbach array. Thank you for backing a small team in Boston.</p>
 
-  <div class="methods" id="methods">
-    <!-- Online methods are added here by the script below once a link/handle is filled in. -->
+  <div class="methods" id="methods" data-verb="Give">
+    <!-- Payment option cards are added here by payment-methods.js -->
     <div class="method wide">
       <h2>Give by email or mail</h2>
       <p>Prefer to give by check, bank transfer, or another way? Write to us and we'll set it up with you.<br><br>
@@ -94,71 +94,7 @@
   A project of Community MRI Project &middot; <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a> &middot; Boston, MA
 </footer>
 
-<script>
-  // To turn on an online payment option, paste its link (https://...) or handle below.
-  // Options left blank show as "Coming soon" placeholders.
-  var PAYMENT_METHODS = [
-    { name: 'Credit or debit card', url: '', cta: 'Give by card',
-      text: 'Give securely online with a credit or debit card.' },
-    { name: 'PayPal', url: '', cta: 'Give with PayPal',
-      text: 'Give with your PayPal balance, bank account, or card.' },
-    { name: 'Venmo', url: '', handle: '', cta: 'Give with Venmo',
-      text: 'Send a gift on Venmo.' },
-    { name: 'Cash App', url: '', handle: '', cta: 'Give with Cash App',
-      text: 'Send a gift on Cash App.' },
-    { name: 'Zelle', handle: '',
-      text: 'Send a bank-to-bank gift with Zelle.' }
-  ];
-
-  (function () {
-    var host = document.getElementById('methods');
-    PAYMENT_METHODS.forEach(function (m) {
-      var hasLink = typeof m.url === 'string' && m.url.indexOf('https://') === 0;
-      var hasHandle = typeof m.handle === 'string' && m.handle.trim() !== '';
-      var live = hasLink || (m.name === 'Zelle' && hasHandle);
-
-      var card = document.createElement('div');
-      card.className = live ? 'method' : 'method soon';
-
-      var h = document.createElement('h2');
-      h.textContent = m.name;
-      card.appendChild(h);
-
-      var p = document.createElement('p');
-      if (!live) {
-        p.textContent = m.text;
-        card.appendChild(p);
-        var t = document.createElement('span');
-        t.className = 'soon-tag';
-        t.textContent = 'Coming soon';
-        card.appendChild(t);
-        host.insertBefore(card, host.lastElementChild);
-        return;
-      }
-      if (hasHandle) {
-        p.appendChild(document.createTextNode(m.text + ' Send to: '));
-        var s = document.createElement('span');
-        s.className = 'handle';
-        s.textContent = m.handle.trim();
-        p.appendChild(s);
-      } else {
-        p.textContent = m.text;
-      }
-      card.appendChild(p);
-
-      if (hasLink) {
-        var a = document.createElement('a');
-        a.className = 'btn';
-        a.href = m.url;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        a.textContent = m.cta;
-        card.appendChild(a);
-      }
-      host.insertBefore(card, host.lastElementChild);
-    });
-  })();
-</script>
+<script src="payment-methods.js"></script>
 
 </body>
 </html>
