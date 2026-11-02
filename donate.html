@@ -46,6 +46,13 @@
   .method p { font-size: 17px; line-height: 1.55; color: var(--muted); margin: 0; flex-grow: 1; overflow-wrap: anywhere; }
   .method .btn, .method .btn-outline { align-self: flex-start; }
   .handle { font-weight: 600; color: var(--ink); }
+  .method.wide { grid-column: 1 / -1; }
+  .method.soon { background: #fffdf8; border-style: dashed; }
+  .method.soon h2 { color: var(--muted); }
+  .soon-tag {
+    align-self: flex-start; display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px;
+    border: 2px dashed var(--line); border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted);
+  }
   .note {
     margin-top: 40px; padding: 20px 24px; background: #fff; border: 1px solid var(--line);
     border-radius: 16px; font-size: 16px; line-height: 1.55; color: var(--muted);
@@ -69,7 +76,7 @@
 
   <div class="methods" id="methods">
     <!-- Online methods are added here by the script below once a link/handle is filled in. -->
-    <div class="method">
+    <div class="method wide">
       <h2>Give by email or mail</h2>
       <p>Prefer to give by check, bank transfer, or another way? Write to us and we'll set it up with you.<br><br>
         <span class="handle">communitymriproject@gmail.com</span><br>
@@ -89,7 +96,7 @@
 
 <script>
   // To turn on an online payment option, paste its link (https://...) or handle below.
-  // Options left blank are not shown on the page.
+  // Options left blank show as "Coming soon" placeholders.
   var PAYMENT_METHODS = [
     { name: 'Credit or debit card', url: '', cta: 'Give by card',
       text: 'Give securely online with a credit or debit card.' },
@@ -108,16 +115,26 @@
     PAYMENT_METHODS.forEach(function (m) {
       var hasLink = typeof m.url === 'string' && m.url.indexOf('https://') === 0;
       var hasHandle = typeof m.handle === 'string' && m.handle.trim() !== '';
-      if (!hasLink && !(m.name === 'Zelle' && hasHandle)) return;
+      var live = hasLink || (m.name === 'Zelle' && hasHandle);
 
       var card = document.createElement('div');
-      card.className = 'method';
+      card.className = live ? 'method' : 'method soon';
 
       var h = document.createElement('h2');
       h.textContent = m.name;
       card.appendChild(h);
 
       var p = document.createElement('p');
+      if (!live) {
+        p.textContent = m.text;
+        card.appendChild(p);
+        var t = document.createElement('span');
+        t.className = 'soon-tag';
+        t.textContent = 'Coming soon';
+        card.appendChild(t);
+        host.insertBefore(card, host.lastElementChild);
+        return;
+      }
       if (hasHandle) {
         p.appendChild(document.createTextNode(m.text + ' Send to: '));
         var s = document.createElement('span');
