@@ -2,99 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>About — Community MRI Project</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We've moved — Community MRI Project</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://communitymriproject.github.io/about.html">
+<meta http-equiv="refresh" content="3; url=https://communitymriproject.github.io/about.html">
+<script>location.replace("https://communitymriproject.github.io/about.html" + location.hash);</script>
 <style>
-  :root {
-    --bg: #f6f1e9;
-    --ink: #1f2a2e;
-    --muted: #3d4a4e;
-    --accent: #0f5c5e;
-    --accent-dark: #0a4345;
-    --line: #ddd3c3;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-  }
-  a { color: var(--accent); }
-  a:hover { color: var(--accent-dark); }
-  h1, h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; margin: 0; }
-  header {
-    position: sticky; top: 0; top: env(safe-area-inset-top, 0px);
-    z-index: 10;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 24px;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-    flex-wrap: wrap; gap: 12px;
-  }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-  .brand span { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: 48px; padding: 0 26px;
-    background: var(--accent); color: #fff !important;
-    border: none; border-radius: 999px;
-    font-family: inherit; font-size: 16px; font-weight: 600;
-    text-decoration: none; cursor: pointer;
-  }
-  main { max-width: 760px; margin: 0 auto; padding: 72px 24px 96px; }
-  .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #9a4520; }
-  main h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-top: 14px; margin-bottom: 40px; }
-  main h2 { font-size: 24px; margin-top: 48px; margin-bottom: 16px; }
-  main p { font-size: 18px; line-height: 1.65; color: var(--muted); margin: 0 0 16px; }
-  main ol { font-size: 18px; line-height: 1.65; color: var(--muted); margin: 0 0 20px; padding-left: 22px; }
-  main ol li { margin-bottom: 8px; }
-  .placeholder { color: #9a4520; }
-  .back { display: inline-block; margin-bottom: 24px; font-size: 15px; color: var(--muted); text-decoration: none; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; box-sizing:border-box;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background:#fff8ec; color:#20262b; text-align:center; }
+  main { max-width:520px; }
+  h1 { font-size:clamp(28px,6vw,40px); margin:0 0 12px; }
+  p { font-size:18px; line-height:1.55; color:#4a5159; }
+  a.btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 28px; border-radius:999px;
+    background:#ff6b4a; color:#fff; font-weight:600; text-decoration:none; margin-top:8px; }
 </style>
 </head>
 <body>
-
-<header>
-  <a href="index.html" class="brand">
-    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0f5c5e" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4.5"></circle></svg>
-    <span>Community MRI Project</span>
-  </a>
-  <a href="wobot.html" class="btn">Donate</a>
-</header>
-
 <main>
-  <a href="index.html" class="back">&larr; Back to home</a>
-  <div class="eyebrow">About us</div>
-  <h1>Our story</h1>
-
-  <p>Community MRI Project is a Boston-based nonprofit working to make MRI access more affordable and available to the people who need it. 
-    50 years since the basic physics of magnetic resonance imaging was first published, MRI scanners remain expensive and impractical for many communities to access. Here's how the open-source MRI movement — and our work — is making them smaller and less costly:</p>
-
-  <ol>
-    <li>Replace superconducting magnets with permanent magnets</li>
-    <li>Redesign electrical components for low power</li>
-    <li>Replace specialized shielding with algorithms</li>
-    <li>Simplify operator software</li>
-    <li>Empower local manufacturing and maintenance</li>
-  </ol>
-
-  <p>By implementing these shifts, researchers have shown that the material cost of building an operational diagnostic scanner can be slashed to as little as 1% of a conventional machine's price.</p>
-
-  <p>Our work is inspired by the growing open-source medical imaging movement — projects like the OSI&sup2; ONE, the first open-source MRI scanner, which showed that low-field, low-cost MRI hardware can be built from openly shared designs. We're taking that one step further: we're building our own desktop MRI scanner, from scratch, in a studio space in Boston. The build is split into five phases — the magnet, the gradient coil insert, the RF coil insert, the electronics, and initial system testing — and we're currently deep in Phase 1, assembling a Halbach array of 4,800 neodymium magnets across 25 individual plates.</p>
-
-  <h2>How WOBOT fits in</h2>
-  <p>WOBOT is our flagship fundraiser: a line of toy robots we 3D print and sell, with proceeds going directly toward the equipment and materials our build needs — starting with a large-format 3D printer, which we need to print the magnet plates and coil inserts for Phases 1 through 3. Every robot sold brings us closer to affording that printer and sourcing the magnets for the array.</p>
-
-  <h2>Our values</h2>
-  <p>We believe the tools of medical imaging shouldn't be locked behind the cost of a conventional scanner. We're building in the open — sharing our progress, our phases, and what we still need — because we think a community-built scanner should be transparent about how it gets built. We're also volunteer-powered: this project only moves forward because people show up to help with design, 3D printing, electronics, and everything in between, and we're always looking for more hands.</p>
+  <h1>We've moved</h1>
+  <p>The Community MRI Project website now lives at its own address. Taking you there now.</p>
+  <a class="btn" href="https://communitymriproject.github.io/about.html">Go to the new site</a>
 </main>
-
 </body>
 </html>

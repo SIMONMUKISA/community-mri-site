@@ -2,189 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Get Involved — Community MRI Project</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>We've moved — Community MRI Project</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://communitymriproject.github.io/get-involved.html">
+<meta http-equiv="refresh" content="3; url=https://communitymriproject.github.io/get-involved.html">
+<script>location.replace("https://communitymriproject.github.io/get-involved.html" + location.hash);</script>
 <style>
-  :root {
-    --bg: #f6f1e9; --ink: #1f2a2e; --muted: #3d4a4e;
-    --accent: #0f5c5e; --accent-dark: #0a4345; --line: #ddd3c3;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); }
-  a { color: var(--accent); }
-  a:hover { color: var(--accent-dark); }
-  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; margin: 0; }
-  header {
-    position: sticky; top: 0; top: env(safe-area-inset-top, 0px); z-index: 10;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 24px; background: var(--bg); border-bottom: 1px solid var(--line);
-    flex-wrap: wrap; gap: 12px;
-  }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-  .brand span { font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: 48px; padding: 0 26px; background: var(--accent); color: #fff !important;
-    border: none; border-radius: 999px; font-family: inherit; font-size: 16px; font-weight: 600;
-    text-decoration: none; cursor: pointer;
-  }
-  .btn-outline {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: 48px; padding: 0 26px; background: transparent; color: var(--accent) !important;
-    border: 2px solid var(--accent); border-radius: 999px; font-family: inherit; font-size: 16px; font-weight: 600;
-    text-decoration: none;
-  }
-  main { max-width: 1000px; margin: 0 auto; padding: 72px 24px 96px; }
-  .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #9a4520; }
-  main h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-top: 14px; margin-bottom: 16px; }
-  main > p { font-size: 18px; line-height: 1.65; color: var(--muted); margin: 0 0 40px; max-width: 640px; }
-  .placeholder { color: #9a4520; }
-  .back { display: inline-block; margin-bottom: 24px; font-size: 15px; color: var(--muted); text-decoration: none; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-bottom: 48px; }
-  .card {
-    display: flex; flex-direction: column; gap: 14px; padding: 28px;
-    background: #fff; border: 2px solid var(--line); border-radius: 18px;
-  }
-  .card h3 { font-size: 22px; }
-  .card p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); flex-grow: 1; }
-  .newsletter {
-    padding: 32px; background: #fff; border: 1px solid var(--line);
-    border-radius: 18px; display: flex; align-items: flex-end; justify-content: space-between;
-    gap: 24px; flex-wrap: wrap;
-  }
-  .newsletter h3 { font-size: 22px; }
-  .newsletter p { color: var(--muted); font-size: 16px; margin-top: 6px; max-width: 360px; }
-  .field { display: flex; flex-direction: column; gap: 6px; }
-  .field label { font-size: 14px; font-weight: 600; }
-  .field input {
-    min-height: 46px; padding: 0 18px; border: 2px solid #b9ad98; border-radius: 999px;
-    font-family: inherit; font-size: 16px; background: var(--bg); width: 240px;
-  }
-  .newsletter-form { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
-
-  .volunteer-form {
-    margin-top: 48px; padding: 32px; background: #fff; border: 1px solid var(--line); border-radius: 18px;
-  }
-  .volunteer-form h2 { font-size: 24px; margin-bottom: 8px; }
-  .volunteer-form > p { color: var(--muted); font-size: 16px; margin: 0 0 28px; max-width: 560px; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .form-grid .field-full { grid-column: 1 / -1; }
-  .volunteer-form .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 0; }
-  .volunteer-form label { font-size: 14px; font-weight: 600; }
-  .volunteer-form input,
-  .volunteer-form select,
-  .volunteer-form textarea {
-    min-height: 46px; padding: 0 16px; border: 2px solid #b9ad98; border-radius: 12px;
-    font-family: inherit; font-size: 16px; background: var(--bg); width: 100%;
-  }
-  .volunteer-form textarea { padding: 12px 16px; min-height: 100px; resize: vertical; }
-  .volunteer-form .field input[type="checkbox"] { width: auto; min-height: auto; }
-  .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
-  .checkbox-row { display: flex; align-items: center; gap: 10px; font-size: 16px; }
-  .checkbox-row input { width: 18px; height: 18px; }
-  .volunteer-form button { margin-top: 24px; }
-  .form-note { font-size: 14px; color: var(--muted); margin-top: 12px; }
-
-  @media (max-width: 700px) {
-    .grid-3 { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
-  }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; box-sizing:border-box;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background:#fff8ec; color:#20262b; text-align:center; }
+  main { max-width:520px; }
+  h1 { font-size:clamp(28px,6vw,40px); margin:0 0 12px; }
+  p { font-size:18px; line-height:1.55; color:#4a5159; }
+  a.btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 28px; border-radius:999px;
+    background:#ff6b4a; color:#fff; font-weight:600; text-decoration:none; margin-top:8px; }
 </style>
 </head>
 <body>
-
-<header>
-  <a href="index.html" class="brand">
-    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0f5c5e" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4.5"></circle></svg>
-    <span>Community MRI Project</span>
-  </a>
-  <a href="wobot.html" class="btn">Donate</a>
-</header>
-
 <main>
-  <a href="index.html" class="back">&larr; Back to home</a>
-  <div class="eyebrow">Get involved</div>
-  <h1>There are a few ways to help</h1>
-  <p>We're a small, volunteer-powered project building a desktop MRI scanner from the ground up — pick whichever way of pitching in fits you best.</p>
-
-  <div class="grid-3">
-    <div class="card">
-      <h3>Donate</h3>
-      <p>Proceeds from WOBOT and direct gifts go straight toward what Phase 1 needs most: a large-format 3D printer and the 4,800 magnets for our Halbach array.</p>
-      <a href="wobot.html" class="btn">Give today</a>
-    </div>
-    <div class="card">
-      <h3>Volunteer</h3>
-      <p>We need hands for 3D printing, electronics, assembly, and outreach. No experience required to get started — just fill out the form below and we'll follow up.</p>
-      <a href="#volunteer-form" class="btn-outline">Sign up to help</a>
-    </div>
-    <div class="card">
-      <h3>Partner with us</h3>
-      <p>Two ways to partner: run an outside fundraiser on our behalf (a drive, an event, a matching gift at your workplace), or lend technical support — engineering, electronics, RF, software, or manufacturing expertise for the build.</p>
-      <a href="mailto:communitymriproject@gmail.com?subject=Partnering%20with%20Community%20MRI%20Project" class="btn-outline">Get in touch</a>
-    </div>
-  </div>
-
-  <div class="volunteer-form" id="volunteer-form">
-    <h2>Volunteer sign-up</h2>
-    <p>Tell us a bit about yourself and what you're interested in. Hitting submit opens your email app with this filled in, addressed to us — just hit send from there.</p>
-    <form action="mailto:communitymriproject@gmail.com?subject=Volunteer%20sign-up" method="post" enctype="text/plain">
-      <div class="form-grid">
-        <div class="field">
-          <label for="v-name">Name</label>
-          <input id="v-name" name="Name" type="text" required>
-        </div>
-        <div class="field">
-          <label for="v-email">Email</label>
-          <input id="v-email" name="Email" type="email" required>
-        </div>
-        <div class="field">
-          <label for="v-phone">Phone (optional)</label>
-          <input id="v-phone" name="Phone" type="tel">
-        </div>
-        <div class="field">
-          <label for="v-availability">Availability</label>
-          <input id="v-availability" name="Availability" type="text" placeholder="e.g. weekends, Tuesday evenings">
-        </div>
-        <div class="field field-full">
-          <label>What are you interested in helping with?</label>
-          <div class="checkbox-group">
-            <label class="checkbox-row"><input type="checkbox" name="Interest" value="3D printing"> 3D printing</label>
-            <label class="checkbox-row"><input type="checkbox" name="Interest" value="Electronics / assembly"> Electronics &amp; assembly</label>
-            <label class="checkbox-row"><input type="checkbox" name="Interest" value="Fundraising / outreach"> Fundraising &amp; outreach</label>
-            <label class="checkbox-row"><input type="checkbox" name="Interest" value="Not sure yet"> Not sure yet — just want to help</label>
-          </div>
-        </div>
-        <div class="field field-full">
-          <label for="v-message">Anything else we should know?</label>
-          <textarea id="v-message" name="Message" placeholder="Relevant skills, questions, or anything else"></textarea>
-        </div>
-      </div>
-      <button type="submit" class="btn">Send volunteer info</button>
-      <div class="form-note">This opens your email app — if nothing happens, email us directly at <a href="mailto:communitymriproject@gmail.com">communitymriproject@gmail.com</a>.</div>
-    </form>
-  </div>
-
-  <div class="newsletter">
-    <div>
-      <h3>Stay in the loop</h3>
-      <p>Occasional updates on build progress and milestones — no spam, unsubscribe any time.</p>
-    </div>
-    <form class="newsletter-form" onsubmit="return false;">
-      <div class="field">
-        <label for="news-email">Email address</label>
-        <input id="news-email" type="email" placeholder="you@example.org">
-      </div>
-      <button type="submit" class="btn">Subscribe</button>
-    </form>
-  </div>
+  <h1>We've moved</h1>
+  <p>The Community MRI Project website now lives at its own address. Taking you there now.</p>
+  <a class="btn" href="https://communitymriproject.github.io/get-involved.html">Go to the new site</a>
 </main>
-
 </body>
 </html>
